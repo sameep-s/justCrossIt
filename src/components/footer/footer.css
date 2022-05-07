@@ -1,0 +1,13 @@
+/* -----------------------Footer CSS */
+
+.container__main__footer{
+    min-height: 40vh;
+    width: 100%;
+    background-color: #f5f5f7;
+    flex-wrap: wrap;
+}
+
+.container__inner__footer{
+    width: 70%;
+    flex-wrap: wrap;
+}

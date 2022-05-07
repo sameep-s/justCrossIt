@@ -1,0 +1,19 @@
+.footer__links__heading{
+    font-size: 2rem;
+    font-family: var(--font-heading);
+    font-weight: bolder;
+    color: #1d1d1f;
+    
+}
+
+.container__footer__links ul li{
+    font-size: 1.7rem;
+    font-family: var(--font-body);
+    color: #424245;
+    margin-top: .6rem;
+    transition: 600ms;
+}
+
+.container__footer__links ul li:hover{
+    text-decoration: underline;
+}
