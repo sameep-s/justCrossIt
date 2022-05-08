@@ -1,0 +1,14 @@
+.main__landingPage__container{
+    height: calc(100vh - 8rem);
+}
+
+.container__info{
+    width: 110rem;
+    font-family: var(--font-heading);
+    font-weight: bolder;
+    font-size: 8rem;
+}
+
+.crossIt{
+    text-decoration: line-through;
+}

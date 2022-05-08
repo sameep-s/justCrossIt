@@ -1,5 +1,5 @@
 .navbar {
-    background-color: red;
+    background-color: black;
     width: 100%;
     height: 8rem;
     top: 0;
@@ -120,6 +120,10 @@
     border: none;
     height: 100%;
   }
+
+.crossIt{
+  text-decoration: line-through;
+}
   
   /* ------------------------------------------media queries */
   

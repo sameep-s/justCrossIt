@@ -27,6 +27,7 @@ const Navbar = () => {
                         {/* <Link to={'/'}>
                             <div className="brand-name">JustCrossIt</div>
                         </Link> */}
+                        <div className="brand-name">Just<span className='crossIt'> Cross </span>It</div>
                     </div>
                     <div className="navbar--container-middle flex a-item-center">
                         <button className="btn-search-nav">
