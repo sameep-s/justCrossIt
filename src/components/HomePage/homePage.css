@@ -1,0 +1,11 @@
+.container__main__homePage{
+    /* background-color: aliceblue; */
+    overflow: auto;
+}
+
+.quill{
+    margin: 10rem;
+    min-width: 70rem;
+    height: 25rem;
+    border-radius: 10px;
+}
