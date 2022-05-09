@@ -1,0 +1,155 @@
+.container__main__notes{
+    overflow: auto;
+}
+
+.container__notes__body{
+    width: 100%;
+}
+
+.container__notes__body_inner{
+    width:90%
+}
+
+.notes__container__heading{
+    border-bottom: 1px solid black;
+}
+
+.notes__container__heading button {
+    margin-left: auto;
+}
+
+
+.notes__body__heading{
+    font-size: 5rem;
+}
+
+
+
+/* ------------------------------------------------------------------- addNote Modal */
+
+
+.container__overlay__addNote{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: auto;
+}
+
+.container__add__note{
+    background-color: white;
+    width: 60%;
+    border-radius: 1rem;
+    z-index: 3; 
+}
+
+.container__add__note__inner{
+    width: 80%;
+}
+
+.add__note__title{
+    width: 100%;
+    font-size: 3.5rem;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.input__title{
+    border-radius: 0;
+}
+
+
+.add__notes__actions__container{
+    width: 100%;
+}
+
+.notes__action__container{
+    justify-content: space-between;
+    width: 40%;
+}
+
+
+.icon__notes__action{
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 1rem;
+    transition: 360ms;
+}
+
+.icon__notes__action:hover{
+    background-color: var(--dark);
+}
+
+.colorPicker{
+    height: 3rem;
+    width: 3rem;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: whitesmoke;
+}
+
+.actions__btn__container{
+    margin-left: auto;
+}
+
+.actions__btn__container button{
+    font-size: 1.6rem;
+}
+
+.overlay__notes__invisible{
+    width: 100%;
+    height: 100%;
+    filter: blur(9px);
+    background-color: rgba(0, 0, 0, 0.208);
+    z-index: 1;
+}
+
+.quill{
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+.ql-editor{
+    font-size: 2rem;
+    height: 15rem;
+    font-family: var(--font-heading);
+}
+
+
+
+/* ----------------------------------------------------------------label container */
+
+.note__label__container{
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.note__label__container .label__note{
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    border: .1rem solid var(--dark);
+    padding: .5rem 1rem;
+    margin: .5rem 1rem .5rem 0;
+    cursor: pointer;
+}
+
+.note__priority__container{
+    width: 100%;
+    font-size: 2rem;
+}
+
+.priority__value{
+    margin: 0 1rem;
+    padding: .5rem 1rem;
+    font-weight: bold;
+    border: .1rem solid var(--dark);
+cursor: pointer;
+}

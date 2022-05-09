@@ -77,6 +77,7 @@
     font-family: var(--font-heading);
     border: .1rem solid white;
     padding: 0.5rem;
+    cursor: pointer;
     background-color: var(--night);
     color: white;
     border-radius: 0.2rem;
@@ -94,7 +95,8 @@
   
   .btn-nav:hover {
     background-color: white;
-    color: red;
+    color: black;
+
   }
   
   .nav-icon-container > div {
