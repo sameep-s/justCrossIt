@@ -4,7 +4,7 @@ import Navbar from './navabar/Navbar';
 import Footer from './footer/Footer';
 import LinkContainer from './footerLinkContainer/LinkContainer';
 import NotesModal from './NotesModal/NotesModal';
-
+import ColorPalette from './colorPalette/ColorPalette';
 
 export {
     LandingPage,
@@ -12,5 +12,6 @@ export {
     Navbar,
     Footer,
     LinkContainer,
-    NotesModal
+    NotesModal,
+    ColorPalette,
 };

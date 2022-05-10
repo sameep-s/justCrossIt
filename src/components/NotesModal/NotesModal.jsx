@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './notesModal.css';
 import ReactQuill from 'react-quill';
+import { colorPalette } from '../index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTag, faArrowDownShortWide, faL } from "@fortawesome/free-solid-svg-icons";
+import ColorPalette from '../colorPalette/ColorPalette';
 
 const NotesModal = ({ setIsModalOpen }) => {
 
@@ -80,30 +82,10 @@ const NotesModal = ({ setIsModalOpen }) => {
 
                                 </div>
 
-                                <div
-                                    onClick={() => setColorPaletteOpen(!colorPaletteOpen)}
-                                    className="colorPalette pos-rel"
-                                    style={{ backgroundColor: "RED" }}
-                                >
-                                    {
-                                        colorPaletteOpen
-                                        &&
-                                        <div className="paletteModalContainer">
-                                            <div className="colorPaletteModal flex pos-abs">
-                                                <div className="colorElement"></div>
-                                                <div className="colorElement"></div>
-                                                <div className="colorElement"></div>
-                                                <div className="colorElement"></div>
-                                                <div className="colorElement"></div>
-                                                <div className="colorElement"></div>
-                                                <div className="colorElement"></div>
-                                            </div>
-                                            <div
-                                                onClick={() => setColorPaletteOpen(false)}
-                                                className="colorPaletteOverlay pos-fix"></div>
-                                        </div>
-                                    }
-                                </div>
+                                {/* color pattele */}
+                                <ColorPalette {...{ colorPaletteOpen, setColorPaletteOpen }} />
+                                {/* here colorpallatte */}
+
 
                                 <div className="prioritySelector pos-rel">
                                     <FontAwesomeIcon className='icon__notes__action' icon={faArrowDownShortWide} onClick={() => setPrioritySelectorOpen(!prioritySelectorOpen)}></FontAwesomeIcon>
