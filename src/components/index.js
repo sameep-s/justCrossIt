@@ -3,6 +3,7 @@ import Sidebar from './Sidebar/Sidebar';
 import Navbar from './navabar/Navbar';
 import Footer from './footer/Footer';
 import LinkContainer from './footerLinkContainer/LinkContainer';
+import NotesModal from './NotesModal/NotesModal';
 
 
 export {
@@ -11,4 +12,5 @@ export {
     Navbar,
     Footer,
     LinkContainer,
+    NotesModal
 };
