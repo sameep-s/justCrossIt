@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './notesModal.css';
 import ReactQuill from 'react-quill';
-import { ColorPalette, PrioritySelector } from '../index';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTag } from "@fortawesome/free-solid-svg-icons";
+import { ColorPalette, PrioritySelector, LabelSelector } from '../index';
+
 
 const NotesModal = ({ setIsModalOpen }) => {
 
@@ -37,9 +36,8 @@ const NotesModal = ({ setIsModalOpen }) => {
                         />
 
                         <div className="note__label__container flex mt-1">
-                            <div className="label__note ">
-                                too Good
-                            </div>
+                            {/* <div className="label__note ">
+                            </div> */}
                         </div>
 
                         <div className="note__priority__container mt-1 flex a-item-center">
@@ -52,37 +50,12 @@ const NotesModal = ({ setIsModalOpen }) => {
                         <div className="add__notes__actions__container flex a-item-center mt-2 pl-2 pr-2">
                             <div className="notes__action__container flex a-item-center">
 
-                                <div className="label__selector pos-rel flex a-item-center jc-center">
-                                    <FontAwesomeIcon className='icon__notes__action' onClick={() => setLabelSelectorOpen(!labelSelectorOpen)} icon={faTag}></FontAwesomeIcon>
-                                    {
-                                        labelSelectorOpen
-                                        &&
-                                        <div className="label__selector__modal pos-abs">
-                                            <form
-                                                action="submit"
-                                                onSubmit={(e) => {
-                                                    e.preventDefault()
-                                                }}
-                                            >
-                                                <input type="text" className='input-txt' placeholder='Add a Label' />
-                                            </form>
+                                {/* labelSelector */}
+                                <LabelSelector{...{ labelSelectorOpen, setLabelSelectorOpen }} />
 
-                                            <div className="labels__container">
-                                                <div className="label__name flex p-1">
-                                                    <input type="checkbox" name="BlackImp" id="" />
-                                                    <label htmlFor="BlackImp" className='ml-1 '> VVIMP</label>
-                                                </div>
-                                            </div>
-
-                                            <div className="label__selector__overlay pos-fix" onClick={() => setLabelSelectorOpen(!labelSelectorOpen)}></div>
-                                        </div>
-                                    }
-
-                                </div>
 
                                 {/* color pattele */}
                                 <ColorPalette {...{ colorPaletteOpen, setColorPaletteOpen }} />
-                                {/* here colorpallatte */}
 
 
                                 {/* pSelector here */}
