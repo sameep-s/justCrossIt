@@ -7,10 +7,7 @@ import { Navbar, Sidebar, NotesModal } from "../../components";
 
 
 const Notes = () => {
-
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-    console.log(isModalOpen);
 
     return (
         <>
@@ -19,9 +16,9 @@ const Notes = () => {
                 <Sidebar />
                 <main className='container__notes__body flex jc-center'>
                     <div className="container__notes__body_inner pt-2">
-                        <div className="notes__container__heading flex">
+                        <div className="notes__container__heading flex a-item-center">
                             <div className="notes__body__heading">
-                                Notes
+                                My Notes
                             </div>
                             <button
                                 className="btn btn-primary"
