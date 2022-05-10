@@ -5,6 +5,7 @@ import Footer from './footer/Footer';
 import LinkContainer from './footerLinkContainer/LinkContainer';
 import NotesModal from './NotesModal/NotesModal';
 import ColorPalette from './colorPalette/ColorPalette';
+import PrioritySelector from './prioritySelector/PrioritySelector';
 
 export {
     LandingPage,
@@ -14,4 +15,5 @@ export {
     LinkContainer,
     NotesModal,
     ColorPalette,
+    PrioritySelector,
 };

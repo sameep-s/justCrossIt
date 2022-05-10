@@ -1,0 +1,55 @@
+
+/* ----------------------------------------------------------------priority container */
+
+.note__priority__container{
+    width: 100%;
+    font-size: 2rem;
+}
+
+.priority__value{
+    margin: 0 1rem;
+    padding: .5rem 1rem;
+    font-weight: bold;
+    border: .1rem solid var(--dark);
+    cursor: pointer;
+}
+
+.container__prioritySelecotr{
+    top: 0;
+    right: -10rem;
+    background-color: white;
+    z-index: 1;
+    border: .1rem solid var(--dark);
+}
+
+.prioritySelector__modal{
+    width: 10rem;
+    padding: 1rem 0;
+}
+
+.prioritySelector__modal input{
+    height: 2rem;
+    width: 2rem;
+    margin: .5rem 1rem;
+}
+
+.prioritySelector__modal label{
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+}
+
+.priority__input__container{
+    display: flex;
+    align-items: center;
+}
+
+.prioritySelector__overlay{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: -1;
+}
+

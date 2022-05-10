@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import './notesModal.css';
 import ReactQuill from 'react-quill';
-import { colorPalette } from '../index';
+import { ColorPalette, PrioritySelector } from '../index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTag, faArrowDownShortWide, faL } from "@fortawesome/free-solid-svg-icons";
-import ColorPalette from '../colorPalette/ColorPalette';
+import { faTag } from "@fortawesome/free-solid-svg-icons";
 
 const NotesModal = ({ setIsModalOpen }) => {
 
@@ -55,7 +54,6 @@ const NotesModal = ({ setIsModalOpen }) => {
 
                                 <div className="label__selector pos-rel flex a-item-center jc-center">
                                     <FontAwesomeIcon className='icon__notes__action' onClick={() => setLabelSelectorOpen(!labelSelectorOpen)} icon={faTag}></FontAwesomeIcon>
-
                                     {
                                         labelSelectorOpen
                                         &&
@@ -87,34 +85,8 @@ const NotesModal = ({ setIsModalOpen }) => {
                                 {/* here colorpallatte */}
 
 
-                                <div className="prioritySelector pos-rel">
-                                    <FontAwesomeIcon className='icon__notes__action' icon={faArrowDownShortWide} onClick={() => setPrioritySelectorOpen(!prioritySelectorOpen)}></FontAwesomeIcon>
-                                    {prioritySelectorOpen
-                                        &&
-                                        <div className="container__prioritySelecotr pos-abs">
-                                            <div className="prioritySelector__modal">
-
-                                                <div className="priority__input__container">
-                                                    <input type="radio" id="HIGH" name="prioritySelector" value='HIGH' />
-                                                    <label htmlFor="HIGH">HIGH</label>
-                                                </div>
-
-                                                <div className="priority__input__container">
-                                                    <input type="radio" id="MEDIUM" name="prioritySelector" value='MEDIUM' />
-                                                    <label htmlFor="MEDIUM">MEDIUM</label>
-                                                </div>
-
-                                                <div className="priority__input__container">
-                                                    <input type="radio" id="LOW" name="prioritySelector" value='LOW' />
-                                                    <label htmlFor="LOW">LOW</label>
-                                                </div>
-
-                                                <div className="prioritySelector__overlay pos-fix" onClick={() => setPrioritySelectorOpen(false)}></div>
-                                            </div>
-
-                                        </div>
-                                    }
-                                </div>
+                                {/* pSelector here */}
+                                <PrioritySelector {...{ prioritySelectorOpen, setPrioritySelectorOpen }} />
 
                             </div>
 
