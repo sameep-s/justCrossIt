@@ -3,7 +3,7 @@ import './prioritySelector.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDownShortWide } from "@fortawesome/free-solid-svg-icons";
 
-const PrioritySelector = ({ prioritySelectorOpen, setPrioritySelectorOpen }) => {
+const PrioritySelector = ({ prioritySelectorOpen, setPrioritySelectorOpen, note, setNote }) => {
     return (
         <>
             <div className="prioritySelector pos-rel">
@@ -15,17 +15,17 @@ const PrioritySelector = ({ prioritySelectorOpen, setPrioritySelectorOpen }) => 
                         <div className="prioritySelector__modal">
 
                             <div className="priority__input__container">
-                                <input type="radio" id="HIGH" name="prioritySelector" value='HIGH' />
+                                <input type="radio" id="HIGH" name="prioritySelector" onChange={() => setNote({ ...note, priority: 'HIGH' })} value='HIGH' checked={note.priority === "HIGH"} />
                                 <label htmlFor="HIGH">HIGH</label>
                             </div>
 
                             <div className="priority__input__container">
-                                <input type="radio" id="MEDIUM" name="prioritySelector" value='MEDIUM' />
+                                <input type="radio" id="MEDIUM" name="prioritySelector" onChange={() => setNote({ ...note, priority: 'MEDIUM' })} value='MEDIUM' checked={note.priority === "MEDIUM"} />
                                 <label htmlFor="MEDIUM">MEDIUM</label>
                             </div>
 
                             <div className="priority__input__container">
-                                <input type="radio" id="LOW" name="prioritySelector" value='LOW' />
+                                <input type="radio" id="LOW" name="prioritySelector" onChange={() => setNote({ ...note, priority: 'LOW' })} value='LOW' checked={note.priority === "LOW"} />
                                 <label htmlFor="LOW">LOW</label>
                             </div>
 

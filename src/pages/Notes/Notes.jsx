@@ -1,10 +1,81 @@
 import React, { useState } from 'react';
+import { v4 as uuid } from 'uuid';
 import "./notes.css";
 import { Navbar, Sidebar, NotesModal } from "../../components";
+import axios from 'axios';
+
+
+const note1 = {
+    _id: uuid(),
+    title: "DefaultNOtesDiss",
+    body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates praesentium tenetur repellat assumenda architecto a.",
+    priority: "LOW",
+    labels: ['high', 'sore', 'pruple'],
+    color: "red"
+}
 
 
 
+const loginHandler = async (email, password) => {
+    try {
+        const { data: { foundUser, encodedToken }, status } = await axios.post("/api/auth/login", {
+            email: email,
+            password: password
+        });
+        console.log(status);
+        if (status === 200) {
+            localStorage.setItem('userNotes', JSON.stringify(foundUser));
+            localStorage.setItem('tokenNotes', encodedToken);
+        }
+    }
+    catch (e) {
+        console.error(e);
+    }
+}
 
+async function getNotesHandler(token) {
+    try {
+        const res = await axios.get('/api/notes', {
+            headers: {
+                authorization: token
+            }
+        })
+        console.log(`notes`, res);
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+function deleteHandler() {
+    localStorage.removeItem('userNotes');
+    localStorage.removeItem('token');
+}
+
+async function addToNotes(noteUser, userToken) {
+    try {
+        const { data: { notes } } = await axios.post('/api/notes', {
+            note: noteUser
+        },
+            {
+                headers:
+                {
+                    authorization: userToken
+                }
+            });
+        console.log(`response`, notes);
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+
+loginHandler("sam@gmail.com", 's123');
+const user = localStorage.getItem('userNotes');
+const token = localStorage.getItem('tokenNotes');
+
+
+addToNotes(note1, token);
+getNotesHandler(token)
 
 const Notes = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,14 +98,12 @@ const Notes = () => {
                                 Add Note
                             </button>
                         </div>
-
                         {isModalOpen && <NotesModal {...{ setIsModalOpen }} />}
-
                     </div>
                 </main>
             </div>
         </>
-    )
-}
+    );
+};
 
 export default Notes;

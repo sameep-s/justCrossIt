@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './colorPalette.css';
 
 const paletteColors = [
@@ -12,16 +12,14 @@ const paletteColors = [
     'rgb(255, 189, 189)'
 ]
 
-const ColorPalette = ({ colorPaletteOpen, setColorPaletteOpen }) => {
-
-    const [noteBackgroundColor, setNoteBackgroundColor] = useState('');
+const ColorPalette = ({ colorPaletteOpen, setColorPaletteOpen, note, setNote }) => {
 
     return (
         <>
             <div
                 onClick={() => setColorPaletteOpen(!colorPaletteOpen)}
                 className="colorPalette pos-rel"
-                style={{ backgroundColor: `${noteBackgroundColor}` }}
+                style={{ backgroundColor: note.backgroundColor }}
             >
                 {
                     colorPaletteOpen
@@ -30,9 +28,10 @@ const ColorPalette = ({ colorPaletteOpen, setColorPaletteOpen }) => {
                         <div className="colorPaletteModal flex pos-abs">
                             {paletteColors.map((color) =>
                                 <div
+                                    key={color}
                                     className="colorElement"
                                     style={{ backgroundColor: `${color}` }}
-                                    onClick={() => setNoteBackgroundColor(`${color}`)}
+                                    onClick={() => setNote({ ...note, backgroundColor: `${color}` })}
                                 />
 
                             )}
