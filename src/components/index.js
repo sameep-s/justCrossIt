@@ -7,6 +7,8 @@ import NotesModal from './NotesModal/NotesModal';
 import ColorPalette from './colorPalette/ColorPalette';
 import PrioritySelector from './prioritySelector/PrioritySelector';
 import LabelSelector from './labelSelector/LabelSelector';
+import NotesCard from './notesCard/NotesCard';
+
 
 export {
     LandingPage,
@@ -17,5 +19,6 @@ export {
     NotesModal,
     ColorPalette,
     PrioritySelector,
-    LabelSelector
+    LabelSelector,
+    NotesCard,
 };

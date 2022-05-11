@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './notesModal.css';
 import ReactQuill from 'react-quill';
 import { ColorPalette, PrioritySelector, LabelSelector } from '../index';
+import { useNotes } from '../../context';
+import { addToNotes, updateNote } from '../../services/notes-services';
 
 const defaultNote = {
+    _id: 1,
     title: "",
     body: "",
     priority: "LOW",
@@ -12,17 +15,24 @@ const defaultNote = {
 }
 
 
-const NotesModal = ({ setIsModalOpen, update }) => {
+const NotesModal = ({ setIsModalOpen, setIsModalOpenUpdate, noteModal, update }) => {
 
-    const [note, setNote] = useState(defaultNote)
+    const [note, setNote] = useState(update ? noteModal : defaultNote)
     const [labelSelectorOpen, setLabelSelectorOpen] = useState(false);
     const [colorPaletteOpen, setColorPaletteOpen] = useState(false);
     const [prioritySelectorOpen, setPrioritySelectorOpen] = useState(false);
 
+    const { dispatch_note } = useNotes()
+    const token = localStorage.getItem('tokenNotes');
+
     function addNoteHandler() {
-        console.log(`addnote`, note);
-        setNote({ ...defaultNote });
+        addToNotes(dispatch_note, note, token);
         setIsModalOpen(false);
+    }
+
+    function updatehandler() {
+        updateNote(dispatch_note, note._id, note, token);
+        setIsModalOpenUpdate(false);
     }
 
     return (
@@ -79,7 +89,7 @@ const NotesModal = ({ setIsModalOpen, update }) => {
                                 <button className="btn btn-danger">Cancel</button>
 
                                 {update ?
-                                    <button className="btn btn-primary" >Update Note</button>
+                                    <button className="btn btn-primary" onClick={updatehandler} >Update Note</button>
                                     :
                                     <button className="btn btn-primary" onClick={addNoteHandler}>Add Note</button>
                                 }
@@ -87,7 +97,7 @@ const NotesModal = ({ setIsModalOpen, update }) => {
                         </div>
                     </div>
                 </div>
-                <div className="overlay__notes__invisible pos-fix" onClick={() => setIsModalOpen(false)} />
+                <div className="overlay__notes__invisible pos-fix" onClick={() => update ? setIsModalOpenUpdate(false) : setIsModalOpen(false)} />
             </div>
         </>
     );
