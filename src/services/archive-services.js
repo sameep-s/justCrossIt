@@ -42,13 +42,18 @@ export async function moveToArchive(dispatch, token, noteId, note) {
 }
 
 
-export async function restoreFromArchives(dispatch, token, noteId) {
+export async function restoreFromArchives(dispatch, encodedToken, noteId) {
     try {
-        const { data: { notes, archives } } = await axios.post(`/api/archives/restore/${noteId}`, {
-            headers: {
-                authorization: token
+        const { data: { notes, archives } } = await axios.post(`api/archives/restore/${noteId}`,
+            {
+                note: {}
             }
-        })
+            , {
+                headers: {
+                    authorization: encodedToken
+                }
+            })
+
         notes && dispatch({ type: NOTES_INIT, payload: { notes: notes } })
         archives && dispatch({ type: ARCHIVES_INIT, payload: { archives: archives } })
     }
