@@ -8,7 +8,9 @@ const Notes = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const { state_note: { notes } } = useNotes();
-    console.log(`stateNOte`, notes);
+
+    const token = localStorage.getItem('tokenNotes');
+    console.log(`stateNOte`, token);
 
     return (
         <>
