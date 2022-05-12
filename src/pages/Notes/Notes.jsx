@@ -10,7 +10,7 @@ const Notes = () => {
     const { state_note: { notes } } = useNotes();
 
     const token = localStorage.getItem('tokenNotes');
-    console.log(`stateNOte`, token);
+    console.log(`token`, token);
 
     return (
         <>
