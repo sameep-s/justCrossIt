@@ -11,7 +11,7 @@ const defaultNote = {
     body: "",
     priority: "LOW",
     labels: [],
-    backgroundColor: "(255,255,255)",
+    backgroundColor: "rgb(255,255,255)",
 }
 
 
@@ -24,6 +24,11 @@ const NotesModal = ({ setIsModalOpen, setIsModalOpenUpdate, noteModal, update })
 
     const { dispatch_note } = useNotes()
     const token = localStorage.getItem('tokenNotes');
+
+    function cancelHandler() {
+        update ? setIsModalOpenUpdate(false) : setIsModalOpen(false);
+        setNote(defaultNote);
+    }
 
     function addNoteHandler() {
         addToNotes(dispatch_note, note, token);
@@ -86,7 +91,7 @@ const NotesModal = ({ setIsModalOpen, setIsModalOpenUpdate, noteModal, update })
                                 <PrioritySelector {...{ prioritySelectorOpen, setPrioritySelectorOpen, note, setNote }} />
                             </div>
                             <div className="actions__btn__container">
-                                <button className="btn btn-danger">Cancel</button>
+                                <button className="btn btn-danger" onClick={cancelHandler}>Cancel</button>
 
                                 {update ?
                                     <button className="btn btn-primary" onClick={updatehandler} >Update Note</button>

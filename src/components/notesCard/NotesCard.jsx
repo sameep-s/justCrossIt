@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './notesCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArchive, faRecycle, faRedo, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faArchive, faPen, faRecycle, faTrash } from '@fortawesome/free-solid-svg-icons';
 import NotesModal from '../NotesModal/NotesModal';
 import { deleteFromNotes } from '../../services/notes-services';
 import { useNotes } from '../../context';
@@ -29,7 +29,7 @@ const NotesCard = (noteModal) => {
                     <FontAwesomeIcon icon={faArchive} />
                     <FontAwesomeIcon icon={faRecycle} />
                     <FontAwesomeIcon icon={faTrash} onClick={() => deleteFromNotes(dispatch_note, noteModal._id, token)} />
-                    <FontAwesomeIcon onClick={() => setIsModalOpenUpdate(true)} icon={faRedo} />
+                    <FontAwesomeIcon onClick={() => setIsModalOpenUpdate(true)} icon={faPen} />
                 </div>
             </div>
             {isModalOpenUpdate && <NotesModal {...{ setIsModalOpenUpdate, ...{ noteModal } }} update />}
