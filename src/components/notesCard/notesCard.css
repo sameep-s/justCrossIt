@@ -1,0 +1,62 @@
+
+/* --------------------------------------------Notes Card Area */
+
+
+.card__notes__container{
+    width: 33rem;
+    margin: 2rem 1rem 1rem 0;
+    padding: 1rem;
+    background-color: var(--danger-shade);
+    transition: 200ms;
+    border: 1px solid var(--dark);
+}
+
+.card__notes__container:hover{
+    transform: scale(1.02);
+}
+
+.card__notes__container .card__notes__title{
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    border-bottom: 1px solid black;
+}
+
+.card__notes__body,
+.card__notes__priority{
+    font-size: 2rem;
+    font-family: var(--font-body);
+    margin: .5rem 0;
+}
+
+.card__priority__labelArea{
+    flex-wrap: wrap;
+}
+
+.label__card__note{
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    border: .1rem solid var(--darker);
+    padding: .5rem 1rem;
+    margin: .5rem 1rem .5rem 0;
+}
+
+.card__notes__actions__container{
+    margin: 1rem 0;
+    margin-top: auto;
+}
+
+.card__notes__actions__container > *{
+    height: 3rem;
+    width: 2rem;
+    cursor: pointer;
+    color: black;
+    transition: 200ms;
+}
+
+.card__notes__actions__container > *:hover{
+    transform: scale(1.1);
+}
+
+
