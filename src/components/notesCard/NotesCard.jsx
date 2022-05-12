@@ -12,6 +12,8 @@ const NotesCard = (noteModal) => {
     const { dispatch_note } = useNotes();
     const token = localStorage.getItem('tokenNotes');
 
+    console.log(`tokenLocalStorage`, token);
+
 
     return (
         <>
