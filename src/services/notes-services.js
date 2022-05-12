@@ -10,7 +10,6 @@ export async function getNotesHandler(dispatch, token) {
                 authorization: token
             }
         })
-        console.log(`notes`, notes);
         notes && dispatch({ type: NOTES_INIT, payload: { notes: notes } })
     } catch (e) {
         console.error(e);
@@ -29,7 +28,6 @@ export async function addToNotes(dispatch, noteUser, userToken) {
                     authorization: userToken
                 }
             });
-        console.log(`response`, notes);
         notes && dispatch({ type: NOTES_INIT, payload: { notes: notes } })
     } catch (e) {
         console.error(e);
@@ -48,7 +46,6 @@ export async function updateNote(dispatch, noteId, note, userToken) {
                     authorization: userToken
                 }
             });
-        console.log(`updateNote:`, notes);
         notes && dispatch({ type: NOTES_INIT, payload: { notes: notes } })
     } catch (e) {
         console.error(e);
@@ -64,7 +61,6 @@ export async function deleteFromNotes(dispatch, id, token) {
                 authorization: token
             }
         })
-        console.log(`deleted`, notes);
         notes && dispatch({ type: NOTES_INIT, payload: { notes: notes } })
     }
     catch (e) {

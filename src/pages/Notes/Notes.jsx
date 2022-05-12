@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./notes.css";
 import { Navbar, Sidebar, NotesModal, NotesCard } from "../../components";
 import { useNotes } from '../../context';
@@ -8,9 +8,7 @@ const Notes = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const { state_note: { notes } } = useNotes();
-
     const token = localStorage.getItem('tokenNotes');
-    console.log(`token`, token);
 
     return (
         <>
@@ -36,7 +34,7 @@ const Notes = () => {
                         </div>
 
                         <div className="container__notes__area flex">
-                            {notes.map((note) => <NotesCard key={note._id} {...note} />)}
+                            {notes.map((note) => <NotesCard key={note._id} {...{ note }} />)}
                         </div>
 
                     </div>

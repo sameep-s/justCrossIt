@@ -1,8 +1,12 @@
 import React from 'react';
-import { Navbar, Sidebar } from '../../components';
+import { Navbar, Sidebar, NotesCard } from '../../components';
 import './archives.css';
+import { useNotes } from '../../context';
+
 
 const Archives = () => {
+    const { state_note: { archives } } = useNotes();
+
     return (
         <>
             <Navbar />
@@ -19,6 +23,7 @@ const Archives = () => {
                         </div>
 
                         <div className="container__archive__area flex">
+                            {archives?.map((note) => <NotesCard key={note._id} {...{ note }} archive />)}
                         </div>
 
                     </div>

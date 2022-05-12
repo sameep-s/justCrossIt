@@ -3,7 +3,7 @@
 }
 
 .container__notes__body_inner{
-    width:90%
+    width:90%;
 }
 
 .notes__container__heading{
@@ -25,6 +25,7 @@
 }
 
 .container__notes__area{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
 }
