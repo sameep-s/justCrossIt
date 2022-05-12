@@ -1,0 +1,30 @@
+.container__trash__body{
+    width: 100%;
+}
+
+.container__trash__body_inner{
+    width:90%
+}
+
+.trash__container__heading{
+    border-bottom: 1px solid black;
+    position: sticky;
+    top: 8rem;
+    background-color: var(--theme-light);
+    z-index: 2;
+}
+
+.trash__container__heading button {
+    margin-left: auto;
+}
+
+
+.trash__body__heading{
+    font-size: 4rem;
+    font-family: var(--font-heading);
+}
+
+.container__trash__area{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}

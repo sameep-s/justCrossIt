@@ -1,0 +1,30 @@
+.container__archive__body{
+    width: 100%;
+}
+
+.container__archive__body_inner{
+    width:90%
+}
+
+.archive__container__heading{
+    border-bottom: 1px solid black;
+    position: sticky;
+    top: 8rem;
+    background-color: var(--theme-light);
+    z-index: 2;
+}
+
+.archive__container__heading button {
+    margin-left: auto;
+}
+
+
+.archive__body__heading{
+    font-size: 4rem;
+    font-family: var(--font-heading);
+}
+
+.container__archive__area{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}

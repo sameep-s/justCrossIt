@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar, Footer } from '../index';
 import './landingPage.css';
 
@@ -10,7 +11,9 @@ const LandingPage = () => {
                 <div className="container__info">
                     Take Notes Using The Best Notes Taking App and Just <span className='crossIt'>Cross</span> Your Goals.
                 </div>
-                <button className='btn btn-primary'>Get Started</button>
+                <Link to={'/notes'}>
+                    <button className='btn btn-primary'>Get Started</button>
+                </Link>
             </div>
             <Footer />
         </>
