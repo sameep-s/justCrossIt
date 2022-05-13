@@ -17,7 +17,7 @@ const defaultNote = {
 
 const NotesModal = ({ setIsModalOpen, setIsModalOpenUpdate, note, update }) => {
 
-    const [note, setNote] = useState(update ? note : defaultNote)
+    const [noteModal, setNoteModal] = useState(update ? note : defaultNote)
     const [labelSelectorOpen, setLabelSelectorOpen] = useState(false);
     const [colorPaletteOpen, setColorPaletteOpen] = useState(false);
     const [prioritySelectorOpen, setPrioritySelectorOpen] = useState(false);
@@ -27,44 +27,45 @@ const NotesModal = ({ setIsModalOpen, setIsModalOpenUpdate, note, update }) => {
 
     function cancelHandler() {
         update ? setIsModalOpenUpdate(false) : setIsModalOpen(false);
-        setNote(defaultNote);
+        setNoteModal(defaultNote);
     }
 
     function addNoteHandler() {
-        addToNotes(dispatch_note, note, token);
+        addToNotes(dispatch_note, noteModal, token);
         setIsModalOpen(false);
     }
 
     function updatehandler() {
-        updateNote(dispatch_note, note._id, note, token);
+        updateNote(dispatch_note, note._id, noteModal, token);
         setIsModalOpenUpdate(false);
     }
 
     return (
         <>
             <div className="container__overlay__addNote pos-fix flex jc-center a-item-center p-3">
-                <div className="container__add__note  flex jc-center a-item-center">
+                <div className="container__add__note  flex jc-center a-item-center" style={{ backgroundColor: `${noteModal.backgroundColor}` }}>
                     <div className="container__add__note__inner m-4 flex flex-col jc-center a-item-center">
                         <div className="add__note__title mt-1 mb-1">
                             {update ? "Update" : "Add"} Note
                         </div>
                         <input
+                            style={{ backgroundColor: `${noteModal.backgroundColor}` }}
                             type="text"
                             className='input-txt input__title'
                             placeholder='Enter Title Of The Note'
-                            onChange={(e) => setNote({ ...note, title: e.target.value })}
-                            value={note.title}
+                            onChange={(e) => setNoteModal({ ...noteModal, title: e.target.value })}
+                            value={noteModal.title}
                         />
                         <ReactQuill
                             className=''
                             theme='snow'
                             placeholder="Write Note Body"
-                            onChange={(e) => setNote({ ...note, body: e })}
-                            value={note.body}
+                            onChange={(e) => setNoteModal({ ...noteModal, body: e })}
+                            value={noteModal.body}
                         />
 
                         <div className="note__label__container flex mt-1">
-                            {note.labels?.map((label) =>
+                            {noteModal.labels?.map((label) =>
                                 <div key={label} className="label__note ">
                                     {label}
                                 </div>
@@ -75,20 +76,20 @@ const NotesModal = ({ setIsModalOpen, setIsModalOpenUpdate, note, update }) => {
                         <div className="note__priority__container mt-1 flex a-item-center">
                             <span>Priority:</span>
                             <div className="priority__value">
-                                {note.priority}
+                                {noteModal.priority}
                             </div>
                         </div>
 
                         <div className="add__notes__actions__container flex a-item-center mt-2 pl-2 pr-2">
                             <div className="notes__action__container flex a-item-center">
                                 {/* labelSelector */}
-                                <LabelSelector {...{ labelSelectorOpen, setLabelSelectorOpen, note, setNote }} />
+                                <LabelSelector {...{ labelSelectorOpen, setLabelSelectorOpen, noteModal, setNoteModal }} />
 
                                 {/* color pattele */}
-                                <ColorPalette {...{ colorPaletteOpen, setColorPaletteOpen, note, setNote }} />
+                                <ColorPalette {...{ colorPaletteOpen, setColorPaletteOpen, noteModal, setNoteModal }} />
 
                                 {/* prioritySelector here */}
-                                <PrioritySelector {...{ prioritySelectorOpen, setPrioritySelectorOpen, note, setNote }} />
+                                <PrioritySelector {...{ prioritySelectorOpen, setPrioritySelectorOpen, noteModal, setNoteModal }} />
                             </div>
                             <div className="actions__btn__container">
                                 <button className="btn btn-danger" onClick={cancelHandler}>Cancel</button>

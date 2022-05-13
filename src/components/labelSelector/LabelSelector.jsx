@@ -4,19 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTag } from "@fortawesome/free-solid-svg-icons";
 
 
-const LabelSelector = ({ labelSelectorOpen, setLabelSelectorOpen, note, setNote }) => {
+const LabelSelector = ({ labelSelectorOpen, setLabelSelectorOpen, noteModal, setNoteModal }) => {
     const [label, setLabel] = useState("");
 
     function addLabel() {
-        note.labels.includes(label) || setNote({ ...note, labels: [...note.labels, label] })
+        noteModal.labels.includes(label) || setNoteModal({ ...noteModal, labels: [...noteModal.labels, label] })
         setLabel("")
     }
 
     function notesHandler(label) {
-        note.labels.includes(label) ?
-            setNote({ ...note, labels: note.labels.filter((labelNotes) => label !== labelNotes) })
+        noteModal.labels.includes(label) ?
+            setNoteModal({ ...noteModal, labels: noteModal.labels.filter((labelNotes) => label !== labelNotes) })
             :
-            setNote({ ...note, labels: [...note.labels, label] })
+            setNoteModal({ ...noteModal, labels: [...noteModal.labels, label] })
     }
 
     return (
@@ -42,15 +42,14 @@ const LabelSelector = ({ labelSelectorOpen, setLabelSelectorOpen, note, setNote 
                         </form>
 
                         <div className="labels__container">
-                            {note?.labels?.map((item) =>
+                            {noteModal?.labels?.map((item) =>
                                 <div key={item} className="label__name flex p-1">
-                                    <input type="checkbox" onChange={() => notesHandler(item)} checked={note.labels.includes(item)} name={item} id={item} />
+                                    <input type="checkbox" onChange={() => notesHandler(item)} checked={noteModal.labels.includes(item)} name={item} id={item} />
                                     <label htmlFor={item} className='ml-1 '>{item}</label>
                                 </div>
                             )}
 
                         </div>
-
                         <div className="label__selector__overlay pos-fix" onClick={() => setLabelSelectorOpen(!labelSelectorOpen)}></div>
                     </div>
                 }

@@ -12,14 +12,14 @@ const paletteColors = [
     'rgb(255, 189, 189)'
 ]
 
-const ColorPalette = ({ colorPaletteOpen, setColorPaletteOpen, note, setNote }) => {
+const ColorPalette = ({ colorPaletteOpen, setColorPaletteOpen, noteModal, setNoteModal }) => {
 
     return (
         <>
             <div
                 onClick={() => setColorPaletteOpen(!colorPaletteOpen)}
                 className="colorPalette pos-rel"
-                style={{ backgroundColor: note.backgroundColor }}
+                style={{ backgroundColor: noteModal.backgroundColor }}
             >
                 {
                     colorPaletteOpen
@@ -31,7 +31,7 @@ const ColorPalette = ({ colorPaletteOpen, setColorPaletteOpen, note, setNote }) 
                                     key={color}
                                     className="colorElement"
                                     style={{ backgroundColor: `${color}` }}
-                                    onClick={() => setNote({ ...note, backgroundColor: `${color}` })}
+                                    onClick={() => setNoteModal({ ...noteModal, backgroundColor: `${color}` })}
                                 />
 
                             )}
