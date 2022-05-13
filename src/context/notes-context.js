@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, createContext, useReducer, useEffect } from "react";
 import { reducerNotes } from "../reducers/notes-reducer";
+import { getArchives } from "../services/archive-services";
 import { getNotesHandler } from "../services/notes-services";
 
 const defaultNotesVal = [];
@@ -23,6 +24,7 @@ const NotesProvider = ({ children }) => {
         })();
 
         getNotesHandler(dispatch_note, tokenNotes);
+        getArchives(dispatch_note, tokenNotes)
     }, []);
 
     const tokenNotes = localStorage.getItem('tokenNotes');

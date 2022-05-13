@@ -3,7 +3,7 @@
 }
 
 .container__info{
-    width: 110rem;
+    width: 80%;
     font-family: var(--font-heading);
     font-weight: bolder;
     font-size: 8rem;

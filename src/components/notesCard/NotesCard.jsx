@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import './notesCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArchive, faPen, faRecycle, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faArchive, faPen, faRecycle, faTrash, faTrashRestore } from '@fortawesome/free-solid-svg-icons';
 import NotesModal from '../NotesModal/NotesModal';
 import { deleteFromNotes } from '../../services/notes-services';
 import { useNotes } from '../../context';
+import { moveToArchive, restoreFromArchives, deleteFromArchives } from '../../services/archive-services';
 
-const NotesCard = (noteModal) => {
-    const { title, body, priority, labels, backgroundColor } = noteModal;
+const NotesCard = ({ note, archive, trash }) => {
     const [isModalOpenUpdate, setIsModalOpenUpdate] = useState(false);
     const { dispatch_note } = useNotes();
+
+    const { _id, title, body, priority, labels, backgroundColor } = note;
     const token = localStorage.getItem('tokenNotes');
 
-    console.log(`tokenLocalStorage`, token);
 
+    function archiveHandler() {
+        moveToArchive(dispatch_note, token, _id, note)
+    }
 
     return (
         <>
@@ -26,13 +30,18 @@ const NotesCard = (noteModal) => {
 
                 </div>
                 <div className="card__notes__actions__container flex jc-space-around">
-                    <FontAwesomeIcon icon={faArchive} />
-                    <FontAwesomeIcon icon={faRecycle} />
-                    <FontAwesomeIcon icon={faTrash} onClick={() => deleteFromNotes(dispatch_note, noteModal._id, token)} />
-                    <FontAwesomeIcon onClick={() => setIsModalOpenUpdate(true)} icon={faPen} />
+
+                    {archive || trash || <FontAwesomeIcon icon={faArchive} onClick={() => archiveHandler()} />}
+                    {archive || trash || <FontAwesomeIcon icon={faRecycle} />}
+                    {archive || trash || <FontAwesomeIcon onClick={() => setIsModalOpenUpdate(true)} icon={faPen} />}
+                    {archive || trash || <FontAwesomeIcon icon={faTrash} onClick={() => deleteFromNotes(dispatch_note, _id, token)} />}
+
+                    {(archive || trash) && <FontAwesomeIcon icon={faTrashRestore} onClick={() => restoreFromArchives(dispatch_note, token, _id)} />}
+                    {(archive || trash) && <FontAwesomeIcon icon={faTrash} onClick={() => deleteFromArchives(dispatch_note, token, _id)} />}
+
                 </div>
             </div>
-            {isModalOpenUpdate && <NotesModal {...{ setIsModalOpenUpdate, ...{ noteModal } }} update />}
+            {isModalOpenUpdate && <NotesModal {...{ setIsModalOpenUpdate, ...{ note } }} update />}
 
         </>
     )

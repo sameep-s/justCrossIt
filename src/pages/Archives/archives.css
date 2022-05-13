@@ -1,12 +1,12 @@
-.container__notes__body{
+.container__archive__body{
     width: 100%;
 }
 
-.container__notes__body_inner{
-    width:90%;
+.container__archive__body_inner{
+    width:90%
 }
 
-.notes__container__heading{
+.archive__container__heading{
     border-bottom: 1px solid black;
     position: sticky;
     top: 8rem;
@@ -14,18 +14,17 @@
     z-index: 2;
 }
 
-.notes__container__heading button {
+.archive__container__heading button {
     margin-left: auto;
 }
 
 
-.notes__body__heading{
+.archive__body__heading{
     font-size: 4rem;
     font-family: var(--font-heading);
 }
 
-.container__notes__area{
+.container__archive__area{
     display: flex;
     flex-wrap: wrap;
-    overflow: scroll;
 }
