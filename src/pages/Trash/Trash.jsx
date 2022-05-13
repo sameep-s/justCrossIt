@@ -35,4 +35,4 @@ const Trash = () => {
     )
 }
 
-export default Trash
+export default Trash;
