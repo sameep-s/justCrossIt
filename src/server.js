@@ -1,18 +1,22 @@
 import { Server, Model, RestSerializer } from "miragejs";
+
 import {
   deleteFromTrashHandler,
   getAllTrashedNotesHandler,
-  restoreFromTrashHandler
+  restoreFromTrashHandler,
 } from "./backend/controllers/TrashController";
+
 import {
   deleteFromArchivesHandler,
   getAllArchivedNotesHandler,
   restoreFromArchivesHandler,
 } from "./backend/controllers/ArchiveController";
+
 import {
   loginHandler,
   signupHandler,
 } from "./backend/controllers/AuthController";
+
 import {
   archiveNoteHandler,
   trashNoteHandler,
@@ -21,6 +25,7 @@ import {
   getAllNotesHandler,
   updateNoteHandler,
 } from "./backend/controllers/NotesController";
+
 import { users } from "./backend/db/users";
 
 export function makeServer({ environment = "development" } = {}) {
@@ -75,15 +80,17 @@ export function makeServer({ environment = "development" } = {}) {
 
       // trash routes (private)
       this.get("/trash", getAllTrashedNotesHandler.bind(this));
-      this.post("/trashed/delete/:noteId",
+      this.post("/trash/restore/:noteId",
         restoreFromTrashHandler.bind(this)
-      )
+      );
       this.delete(
         "trash/delete/:noteId",
         deleteFromTrashHandler.bind(this)
-      )
+      );
 
     },
   });
+
+
   return server;
 }

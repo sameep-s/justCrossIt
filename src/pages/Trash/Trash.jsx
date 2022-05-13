@@ -1,8 +1,12 @@
 import React from 'react';
-import { Navbar, Sidebar } from '../../components';
+import { Navbar, NotesCard, Sidebar } from '../../components';
+import { useNotes } from '../../context';
 import './trash.css';
 
 const Trash = () => {
+
+    const { state_note: { trash } } = useNotes();
+
     return (
         <>
             <Navbar />
@@ -21,6 +25,7 @@ const Trash = () => {
                         </div>
 
                         <div className="container__trash__area flex">
+                            {trash?.map((note) => <NotesCard key={note._id} {...{ note }} trash />)}
                         </div>
 
                     </div>

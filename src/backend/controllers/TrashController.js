@@ -49,7 +49,7 @@ export const deleteFromTrashHandler = function (schema, request) {
 
 /**
  * This handler handles restoring the trashed notes to user notes.
- * send POST Request at /api/trashed/restore/:noteId
+ * send POST Request at /api/trash/restore/:noteId
  * */
 
 export const restoreFromTrashHandler = function (schema, request) {
