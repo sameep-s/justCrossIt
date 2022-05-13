@@ -3,6 +3,7 @@ import { useContext, createContext, useReducer, useEffect } from "react";
 import { reducerNotes } from "../reducers/notes-reducer";
 import { getArchives } from "../services/archive-services";
 import { getNotesHandler } from "../services/notes-services";
+import { getTrashedNotes } from "../services/trash-services";
 
 const defaultNotesVal = [];
 const NoteContext = createContext(defaultNotesVal)
@@ -24,7 +25,8 @@ const NotesProvider = ({ children }) => {
         })();
 
         getNotesHandler(dispatch_note, tokenNotes);
-        getArchives(dispatch_note, tokenNotes)
+        getArchives(dispatch_note, tokenNotes);
+        getTrashedNotes(dispatch_note, tokenNotes);
     }, []);
 
     const tokenNotes = localStorage.getItem('tokenNotes');

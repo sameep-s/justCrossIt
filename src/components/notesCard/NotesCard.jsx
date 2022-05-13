@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import './notesCard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArchive, faPen, faRecycle, faTrash, faTrashRestore } from '@fortawesome/free-solid-svg-icons';
-import NotesModal from '../NotesModal/NotesModal';
-import { deleteFromNotes } from '../../services/notes-services';
-import { useNotes } from '../../context';
 import { moveToArchive, restoreFromArchives, deleteFromArchives } from '../../services/archive-services';
+import { deleteFromNotes } from '../../services/notes-services';
+import NotesModal from '../NotesModal/NotesModal';
+import { useNotes } from '../../context';
+import { moveToTrash, restoreFromTrash, deleteFromTrash } from '../../services/trash-services';
 
 const NotesCard = ({ note, archive, trash }) => {
     const [isModalOpenUpdate, setIsModalOpenUpdate] = useState(false);
@@ -16,7 +17,11 @@ const NotesCard = ({ note, archive, trash }) => {
 
 
     function archiveHandler() {
-        moveToArchive(dispatch_note, token, _id, note)
+        moveToArchive(dispatch_note, token, _id, note);
+    }
+
+    function trashHandler() {
+        moveToTrash(dispatch_note, token, _id, note);
     }
 
     return (
@@ -32,12 +37,19 @@ const NotesCard = ({ note, archive, trash }) => {
                 <div className="card__notes__actions__container flex jc-space-around">
 
                     {archive || trash || <FontAwesomeIcon icon={faArchive} onClick={() => archiveHandler()} />}
-                    {archive || trash || <FontAwesomeIcon icon={faRecycle} />}
+                    {archive || trash || <FontAwesomeIcon icon={faRecycle} onClick={() => trashHandler()} />}
                     {archive || trash || <FontAwesomeIcon onClick={() => setIsModalOpenUpdate(true)} icon={faPen} />}
                     {archive || trash || <FontAwesomeIcon icon={faTrash} onClick={() => deleteFromNotes(dispatch_note, _id, token)} />}
 
-                    {(archive || trash) && <FontAwesomeIcon icon={faTrashRestore} onClick={() => restoreFromArchives(dispatch_note, token, _id)} />}
-                    {(archive || trash) && <FontAwesomeIcon icon={faTrash} onClick={() => deleteFromArchives(dispatch_note, token, _id)} />}
+                    {(archive || trash) && <FontAwesomeIcon icon={faTrashRestore} onClick={() => archive ? restoreFromArchives(dispatch_note, token, _id)
+                        :
+                        restoreFromTrash(dispatch_note, token, _id)
+                    } />}
+
+                    {(archive || trash) && <FontAwesomeIcon icon={faTrash} onClick={() => archive ? deleteFromArchives(dispatch_note, token, _id)
+                        :
+                        deleteFromTrash(dispatch_note, token, _id)
+                    } />}
 
                 </div>
             </div>

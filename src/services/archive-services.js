@@ -21,8 +21,6 @@ export async function getArchives(dispatch, token) {
 
 
 export async function moveToArchive(dispatch, token, noteId, note) {
-
-
     try {
 
         const { data: { notes, archives } } = await axios.post(`api/notes/archives/${noteId}`, {
@@ -31,13 +29,13 @@ export async function moveToArchive(dispatch, token, noteId, note) {
             headers: {
                 authorization: token
             }
-        })
+        });
         notes && dispatch({ type: NOTES_INIT, payload: { notes: notes } });
         archives && dispatch({ type: ARCHIVES_INIT, payload: { archives: archives } });
     }
 
     catch (e) {
-        console.error(e)
+        console.error(e);
     }
 }
 
@@ -58,7 +56,7 @@ export async function restoreFromArchives(dispatch, encodedToken, noteId) {
         archives && dispatch({ type: ARCHIVES_INIT, payload: { archives: archives } })
     }
     catch (e) {
-        console.error(e)
+        console.error(e);
     }
 }
 
@@ -76,3 +74,5 @@ export async function deleteFromArchives(dispatch, token, noteId) {
     }
 
 }
+
+
