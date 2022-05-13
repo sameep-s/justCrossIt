@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import "./notes.css";
 import { Navbar, Sidebar, NotesModal, NotesCard } from "../../components";
 import { useNotes } from '../../context';

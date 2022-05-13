@@ -11,9 +11,6 @@ function App() {
         <Route path="/archives" element={<Archives />} />
         <Route path="/trash" element={<Trash />} />
       </Routes>
-
-      <div className="App">
-      </div>
     </>
   );
 }

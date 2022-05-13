@@ -15,9 +15,9 @@ const defaultNote = {
 }
 
 
-const NotesModal = ({ setIsModalOpen, setIsModalOpenUpdate, noteModal, update }) => {
+const NotesModal = ({ setIsModalOpen, setIsModalOpenUpdate, note, update }) => {
 
-    const [note, setNote] = useState(update ? noteModal : defaultNote)
+    const [note, setNote] = useState(update ? note : defaultNote)
     const [labelSelectorOpen, setLabelSelectorOpen] = useState(false);
     const [colorPaletteOpen, setColorPaletteOpen] = useState(false);
     const [prioritySelectorOpen, setPrioritySelectorOpen] = useState(false);
