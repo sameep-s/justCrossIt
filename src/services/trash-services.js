@@ -8,7 +8,6 @@ export async function getTrashedNotes(dispatch, token) {
                 authorization: token
             }
         });
-        console.log(`trash working`);
         trash && dispatch({ type: TRASH_INIT, payload: { trash: trash } });
     }
     catch (e) {
