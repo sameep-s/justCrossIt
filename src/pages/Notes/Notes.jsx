@@ -33,6 +33,10 @@ const Notes = () => {
                             {isModalOpen && <NotesModal {...{ setIsModalOpen }} />}
                         </div>
 
+                        <div className="filter__notes__container">
+                            filter notes
+                        </div>
+
                         <div className="container__notes__area flex">
                             {notes.map((note) => <NotesCard key={note._id} {...{ note }} />)}
                         </div>
