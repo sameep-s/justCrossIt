@@ -1,0 +1,50 @@
+/* --------------------------------Filters-CSS */
+
+.filter__notes__container{
+    border: 1px solid var(--dark);
+}
+
+.filter__notes__heading{
+    font-weight: bold;
+    font-size: 2rem;
+    font-family: var(--font-heading);
+    border-bottom: 1px solid black;
+
+}
+
+.container__filters{
+    flex-wrap: wrap;
+    padding: 2rem 0;
+}
+
+.container__filter__priority .filter__checkbox{
+    margin-left: 1rem;
+}
+
+.container__filter__priority .filter__checkbox input{
+    height: 2rem;
+    width: 2rem;
+}
+
+.container__filter__priority .filter__checkbox label{
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    margin-left: .5rem;
+
+}
+
+.container__filter__property{
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    margin-left: 2rem;
+    border: 1px solid black;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+.container__filter__property .icon__filter__arrow{
+    transform: rotate(90deg);
+}
+

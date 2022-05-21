@@ -8,6 +8,10 @@ import ColorPalette from './colorPalette/ColorPalette';
 import PrioritySelector from './prioritySelector/PrioritySelector';
 import LabelSelector from './labelSelector/LabelSelector';
 import NotesCard from './notesCard/NotesCard';
+import Filters from './Filters/Filters';
+import FilterColor from './FilterColor/FilterColor';
+import FilterLabel from './FilterLabel/FilterLabel';
+import { paletteColors } from './colorPalette/ColorPalette';
 
 
 export {
@@ -21,4 +25,8 @@ export {
     PrioritySelector,
     LabelSelector,
     NotesCard,
+    Filters,
+    FilterColor,
+    FilterLabel,
+    paletteColors
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./notes.css";
-import { Navbar, Sidebar, NotesModal, NotesCard } from "../../components";
+import { Navbar, Sidebar, NotesModal, NotesCard, Filters } from "../../components";
 import { useNotes } from '../../context';
 
 
@@ -33,9 +33,8 @@ const Notes = () => {
                             {isModalOpen && <NotesModal {...{ setIsModalOpen }} />}
                         </div>
 
-                        <div className="filter__notes__container">
-                            filter notes
-                        </div>
+                        {/* filters here */}
+                        <Filters />
 
                         <div className="container__notes__area flex">
                             {notes.map((note) => <NotesCard key={note._id} {...{ note }} />)}

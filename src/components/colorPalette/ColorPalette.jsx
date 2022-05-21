@@ -1,7 +1,7 @@
 import React from 'react';
 import './colorPalette.css';
 
-const paletteColors = [
+export const paletteColors = [
     'rgb(255, 255, 255)',
     'rgb(161, 161, 253)',
     'rgb(229, 198, 252)',
