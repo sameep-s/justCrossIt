@@ -30,7 +30,7 @@ const NotesProvider = ({ children }) => {
     }, []);
 
     const tokenNotes = localStorage.getItem('tokenNotes');
-    const [state_note, dispatch_note] = useReducer(reducerNotes, { notes: [] });
+    const [state_note, dispatch_note] = useReducer(reducerNotes, { notes: [], labels: [] });
 
 
     return (

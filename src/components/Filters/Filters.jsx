@@ -2,11 +2,24 @@ import React, { useState } from 'react';
 import './filters.css';
 import { FilterColor } from '../';
 import FilterLabel from '../FilterLabel/FilterLabel';
+import { useNotes } from '../../context';
+import { FILTER_PRIORITY } from '../../constants/notesReducer-constant';
 
 const Filters = () => {
 
+    const { state_note: { notes }, dispatch_note } = useNotes();
+
     const [isOpenColorFilter, setIsColorFilterIsOpen] = useState(false);
     const [isOpenLabelFilter, setIsLabelFilterIsOpen] = useState(false);
+
+    function filterByPriority(priorityVal) {
+        if (priorityVal) {
+            dispatch_note({ type: FILTER_PRIORITY, payload: { priority: priorityVal } })
+        }
+
+        return notes;
+
+    }
 
     return (
         <>
@@ -17,7 +30,12 @@ const Filters = () => {
                 <div className="container__filters flex a-item-center">
                     <div className="container__filter__priority flex">
                         <div className="filter__checkbox flex a-item-center">
-                            <input type="checkbox" name="LOW" id="LOW" />
+                            <input
+                                type="checkbox"
+                                name="LOW"
+                                id="LOW"
+                                onChange={() => filterByPriority("LOW")}
+                            />
                             <label htmlFor="LOW">LOW</label>
                         </div>
 

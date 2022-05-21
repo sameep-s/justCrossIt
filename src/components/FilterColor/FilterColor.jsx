@@ -18,7 +18,7 @@ const FilterColor = ({ isOpenColorFilter, setIsColorFilterIsOpen }) => {
                     &&
                     <div className="container__overlay__color pos-abs">
                         {paletteColors.map((color) =>
-                            <div className="color__item flex a-item-center mt-1">
+                            <div className="color__item flex a-item-center mt-1" key={color}>
                                 <input type="checkbox" className='mr-1' name={color} id={color} />
                                 <label htmlFor={color} style={{ backgroundColor: `${color}` }}></label>
                             </div>
