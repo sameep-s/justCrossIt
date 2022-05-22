@@ -30,13 +30,14 @@ const NotesProvider = ({ children }) => {
     }, []);
 
     const tokenNotes = localStorage.getItem('tokenNotes');
+
     const [state_note, dispatch_note] = useReducer(reducerNotes, { notes: [], labels: [] });
 
 
     return (
-        < NoteContext.Provider value={{ state_note, dispatch_note }} >
+        <NoteContext.Provider value={{ state_note, dispatch_note }} >
             {children}
-        </NoteContext.Provider >
+        </NoteContext.Provider>
     )
 }
 

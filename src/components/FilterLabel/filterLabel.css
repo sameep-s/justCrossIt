@@ -5,7 +5,7 @@
     background-color: white;
     left: 0;
     border: 1px solid var(--dark);
-    width: 10rem;
+    width: 15rem;
     height: 14rem;
     overflow: scroll;
     z-index:2;
