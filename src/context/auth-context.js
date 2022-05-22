@@ -10,15 +10,18 @@ const AuthProvider = ({ children }) => {
     const localUser = localStorage.getItem('userNotes');
     const [encodedToken, setEncodedToken] = useState(localEncodedToken);
     const [user, setUser] = useState(localUser);
+    console.log(user);
 
     const loginUser = async (email, password) => {
         try {
             const { data: { foundUser, encodedToken }, status } = await loginService(email, password);
-            if (status === 201) {
+
+            if (status === 200) {
                 localStorage.setItem('tokenNotes', encodedToken);
-                localStorage.setItem('userToken', foundUser);
+                localStorage.setItem('userNotes', foundUser);
                 setEncodedToken(encodedToken);
                 setUser(foundUser);
+                console.log(`founduser`, foundUser);
             }
         } catch (e) {
             console.error("Error, Can't log in user", e);
@@ -31,15 +34,15 @@ const AuthProvider = ({ children }) => {
             const { status, data: { encodedToken, createdUser } } = await signupService(email, password, confirmPassword, firstName, lastName, age);
             if (status === 201) {
                 localStorage.setItem('tokenNotes', encodedToken);
-                localStorage.setItem('userToken', createdUser);
+                localStorage.setItem('userNotes', createdUser);
                 setEncodedToken(encodedToken);
                 setUser(createdUser);
+                console.log(`created user`, createdUser);
             }
         } catch (e) {
             console.error(e);
         }
     }
-
 
 
     return (
