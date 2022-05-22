@@ -19,12 +19,15 @@ const FilterLabel = ({ isOpenLabelFilter, setIsLabelFilterIsOpen }) => {
 
                     <div className="container__overlay__label pos-abs">
                         {
-                            labels.map((label) =>
-                                <div className="label__item flex a-item-center mt-1" key={label}>
-                                    <input type="checkbox" className='mr-1' name={label} id={label} />
-                                    <label htmlFor="label">{label}</label>
-                                </div>
-                            )
+                            labels.length === 0 ?
+                                <div className="txt-gray txt-center">No Labels</div>
+                                :
+                                labels.map((label) =>
+                                    <div className="label__item flex a-item-center mt-1" key={label}>
+                                        <input type="checkbox" className='mr-1' name={label} id={label} />
+                                        <label htmlFor="label">{label}</label>
+                                    </div>
+                                )
                         }
 
 
