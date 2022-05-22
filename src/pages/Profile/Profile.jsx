@@ -8,7 +8,7 @@ const Profile = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar noSearch />
             <div className="container__main__profile flex">
                 <Sidebar />
 

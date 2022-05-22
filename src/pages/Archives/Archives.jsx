@@ -9,7 +9,7 @@ const Archives = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar noSearch />
             <div className='container__main__archive flex flec-col'>
                 <Sidebar />
                 <main className='container__archive__body flex jc-center'

@@ -45,7 +45,9 @@ const Navbar = ({ noSearch }) => {
                     <div className="navbar--container-end flex a-item-center">
                         <div className="nav-icon-container">
                             <div className="nav-cart-icon">
-                                <FontAwesomeIcon icon={faHome} className="nav__icons" ></FontAwesomeIcon>
+                                <Link to='/notes'>
+                                    <FontAwesomeIcon icon={faHome} className="nav__icons" ></FontAwesomeIcon>
+                                </Link>
                             </div>
                         </div>
                         {

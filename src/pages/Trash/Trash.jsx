@@ -9,7 +9,7 @@ const Trash = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar noSearch />
 
             <div className='container__main__trash flex flec-col'>
                 <Sidebar />

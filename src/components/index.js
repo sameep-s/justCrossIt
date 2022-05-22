@@ -12,6 +12,7 @@ import Filters from './Filters/Filters';
 import FilterColor from './FilterColor/FilterColor';
 import FilterLabel from './FilterLabel/FilterLabel';
 import { paletteColors } from './colorPalette/ColorPalette';
+import { RequireAuth } from './PrivateRoutes/RequireAuth';
 
 
 export {
@@ -28,5 +29,6 @@ export {
     Filters,
     FilterColor,
     FilterLabel,
-    paletteColors
+    paletteColors,
+    RequireAuth,
 };
