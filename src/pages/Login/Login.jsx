@@ -16,7 +16,6 @@ const Login = () => {
         if (user) {
             navigate(location?.state?.from || '/', { replace: true });
         }
-        console.log(user);
     }, [user]);
 
 
