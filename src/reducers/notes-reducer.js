@@ -27,6 +27,7 @@ export const reducerNotes = (state_note, action) => {
             }
 
         case FilterColor:
+            return state_note;
 
         case FilterLabel:
 
