@@ -1,14 +1,27 @@
 import React, { useState } from 'react';
 import "./notes.css";
-import { Navbar, Sidebar, NotesModal, NotesCard } from "../../components";
+import { Navbar, Sidebar, NotesModal, NotesCard, Filters } from "../../components";
 import { useNotes } from '../../context';
+import { filterPriority, filterColor, filterLabel, filterSearch } from '../../services/filter-services';
 
 
 const Notes = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const { state_note: { notes } } = useNotes();
-    const token = localStorage.getItem('tokenNotes');
+    const { state_note: { notes,
+        filter_priority,
+        filter_color,
+        filter_label,
+        filter_search } } = useNotes();
+
+    console.log(notes);
+
+    const priorityFilteredNotes = filterPriority(notes, filter_priority);
+    const colorFilteredNotes = filterColor(priorityFilteredNotes, filter_color);
+    const labelFilteredNotes = filterLabel(colorFilteredNotes, filter_label);
+    const searchFilteredNotes = filterSearch(labelFilteredNotes, filter_search);
+
+    const filteredNotes = [...searchFilteredNotes];
 
     return (
         <>
@@ -33,8 +46,11 @@ const Notes = () => {
                             {isModalOpen && <NotesModal {...{ setIsModalOpen }} />}
                         </div>
 
+                        {/* filters here */}
+                        <Filters />
+
                         <div className="container__notes__area flex">
-                            {notes.map((note) => <NotesCard key={note._id} {...{ note }} />)}
+                            {filteredNotes.map((note) => <NotesCard key={note._id} {...{ note }} />)}
                         </div>
 
                     </div>

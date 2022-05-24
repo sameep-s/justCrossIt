@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import './labelSelector.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTag } from "@fortawesome/free-solid-svg-icons";
+import { useNotes } from '../../context';
 
 
 const LabelSelector = ({ labelSelectorOpen, setLabelSelectorOpen, noteModal, setNoteModal }) => {
+
+    const { state_note: { labels } } = useNotes();
     const [label, setLabel] = useState("");
 
     function addLabel() {
         noteModal.labels.includes(label) || setNoteModal({ ...noteModal, labels: [...noteModal.labels, label] })
+        labels.includes(label) || labels.push(label);
         setLabel("")
     }
 
@@ -42,7 +46,7 @@ const LabelSelector = ({ labelSelectorOpen, setLabelSelectorOpen, noteModal, set
                         </form>
 
                         <div className="labels__container">
-                            {noteModal?.labels?.map((item) =>
+                            {labels?.map((item) =>
                                 <div key={item} className="label__name flex p-1">
                                     <input type="checkbox" onChange={() => notesHandler(item)} checked={noteModal.labels.includes(item)} name={item} id={item} />
                                     <label htmlFor={item} className='ml-1 '>{item}</label>

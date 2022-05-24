@@ -1,0 +1,35 @@
+.container__user__profile{
+    width: 100%;
+}
+
+.user__profile__container{
+    border: 1px solid var(--dark);
+    border-radius: 5px;
+    width: 80rem;
+}
+
+.img__user{
+    width: 100%;
+    margin: 1rem;
+}
+
+.img__avatar{
+border: .5rem solid var(--dark);
+padding: 2rem;
+border-radius: 50%;
+}
+
+.info__field{
+    margin: 1rem 0;
+}
+
+.info__field__label{
+    font-size: 2rem;
+font-weight: bold;
+margin-right: 2rem;
+}
+
+.info__field__value{
+    font-size: 2rem;
+
+}
