@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# JustCrossIt
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+JustCrossIt is a note taking APP, which let's you CREATE, DELETE, ARCHIVE notes in the most hassle free way possible.
 
-## Available Scripts
+# Deployment Status Check
+![image](https://user-images.githubusercontent.com/36707002/154985566-37812989-ef00-4794-81c2-8665b90fff8c.png)
 
-In the project directory, you can run:
 
-### `yarn start`
+# Run Locally
+Copy and paste the below command into you terminal in a desired repository to run this app locally.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+https://github.com/sameep-s/justCrossIt.git
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Features
 
-### `yarn test`
+# Homepage
+<ul>
+  <li>You are greeted with a Homepage with all the info required to get started.</li>
+</ul>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Notes Listing Page
+<ul>
+  <li>All Notes Are Listed Here.</li>
+</ul>
 
-### `yarn build`
+# Auth 
+<ul>
+  <li>Login</li>
+  <li>Signup</li>
+  <li>Logout</li>
+  <li>Persistant Login</li>
+</ul>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Filters
+<ul>
+  <li>Filter by COLOR</li>
+  <li>Filter By PRIORITY</li>
+  <li>Filter By SEARCH</li>
+  <li>Filter By LABELS</li>
+  <li>Clear Filters</li>
+</ul>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Cart
+<ul>
+  <li>Create a Note</li>
+  <li>Update a Note</li>
+  <li>Delete a Note</li>
+  <li>Archive a Note</li>
+  <li>Recycle a Note</li>
+  <li>Add Lables to Note</li>
+  <li>Add color to Notes</li>
+  <li>Add priority to Notes</li>
+</ul>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# ARCHIVES
+<ul>
+  <li>Add NOTES to ARCHIVES</li>
+  <li>Remove NOTES from ARCHIVES</li>
+</ul>
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# RECYCLE
+<ul>
+  <li>Add NOTES to RECYCLE</li>
+  <li>Remove NOTES from RECYCLE</li>
+</ul>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Screenshots
+![Screenshot (158)](https://user-images.githubusercontent.com/36707002/170016537-0fb71513-5d4a-4e02-8f65-08071eb2f76f.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Screenshot (157)](https://user-images.githubusercontent.com/36707002/170016528-b4e6954a-9095-4eed-9d3e-fe2b7591ffb9.png)
 
-## Learn More
+![Screenshot (159)](https://user-images.githubusercontent.com/36707002/170016482-fab4bf9d-5d36-4fbf-a1ef-f3326971fe88.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Screenshot (160)](https://user-images.githubusercontent.com/36707002/170016500-84b8281a-a332-4c7c-889c-6b514d4b007a.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Screenshot (161)](https://user-images.githubusercontent.com/36707002/170016501-db54258f-412d-4308-aaea-f91b6bbf3ea9.png)
 
-### Code Splitting
+![Screenshot (162)](https://user-images.githubusercontent.com/36707002/170016503-3dd920da-c667-43fc-aa9e-0dc618b5f478.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Screenshot (163)](https://user-images.githubusercontent.com/36707002/170016507-5a73707c-7201-4a42-9cab-20fbbfa64afb.png)
 
-### Analyzing the Bundle Size
+![Screenshot (164)](https://user-images.githubusercontent.com/36707002/170016514-1794c605-d688-4e1f-800d-1125702b2827.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Screenshot (165)](https://user-images.githubusercontent.com/36707002/170016521-0e6fa2df-e168-4808-9091-1d7a7c4b34bf.png)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
