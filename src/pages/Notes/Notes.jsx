@@ -14,6 +14,8 @@ const Notes = () => {
         filter_label,
         filter_search } } = useNotes();
 
+    console.log(notes);
+
     const priorityFilteredNotes = filterPriority(notes, filter_priority);
     const colorFilteredNotes = filterColor(priorityFilteredNotes, filter_color);
     const labelFilteredNotes = filterLabel(colorFilteredNotes, filter_label);

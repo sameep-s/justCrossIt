@@ -11,7 +11,8 @@ const NotesProvider = ({ children }) => {
         labels: [],
         filter_priority: [],
         filter_color: [],
-        filter_label: []
+        filter_label: [],
+        filter_search: ""
     });
 
     return (

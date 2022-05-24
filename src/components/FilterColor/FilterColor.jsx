@@ -36,8 +36,6 @@ const FilterColor = ({ isOpenColorFilter, setIsColorFilterIsOpen }) => {
                                 <label htmlFor={color} style={{ backgroundColor: `${color}` }}></label>
                             </div>
                         )}
-
-
                         <div className="invisible___overlay pos-fix" onClick={() => setIsColorFilterIsOpen(false)} />
                     </div>
                 }

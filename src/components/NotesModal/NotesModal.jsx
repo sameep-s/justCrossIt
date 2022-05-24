@@ -11,7 +11,7 @@ const defaultNote = {
     body: "",
     priority: "LOW",
     labels: [],
-    backgroundColor: "rgb(255,255,255)",
+    backgroundColor: "rgb(255, 255, 255)"
 }
 
 

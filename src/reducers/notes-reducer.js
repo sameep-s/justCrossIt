@@ -13,7 +13,7 @@ const defaultFilterState = {
     filter_priority: [],
     filter_color: [],
     filter_label: [],
-    filter_search: ""
+    filter_search: "",
 };
 
 
