@@ -10,7 +10,8 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
 
-    const { dispatch_note } = useNotes();
+    const { state_note, dispatch_note } = useNotes();
+    console.log(state_note);
 
     const localEncodedToken = localStorage.getItem('tokenNotes');
     const localUser = localStorage.getItem('userNotes');

@@ -12,6 +12,12 @@
 
 }
 
+.filter__notes__heading span{
+    margin-left: auto;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .container__filters{
     flex-wrap: wrap;
     padding: 2rem 0;

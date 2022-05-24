@@ -1,10 +1,11 @@
 import React from 'react';
+import { FILTER_LABEL } from '../../constants/notesReducer-constant';
 import { useNotes } from '../../context';
 import './filterLabel.css';
 
 const FilterLabel = ({ isOpenLabelFilter, setIsLabelFilterIsOpen }) => {
 
-    const { state_note: { labels } } = useNotes();
+    const { state_note: { labels, filter_label }, dispatch_note } = useNotes();
 
     return (
         <>
@@ -24,7 +25,15 @@ const FilterLabel = ({ isOpenLabelFilter, setIsLabelFilterIsOpen }) => {
                                 :
                                 labels.map((label) =>
                                     <div className="label__item flex a-item-center mt-1" key={label}>
-                                        <input type="checkbox" className='mr-1' name={label} id={label} />
+                                        <input
+                                            type="checkbox"
+                                            className='mr-1'
+                                            name={label}
+                                            id={label}
+                                            value={label}
+                                            checked={filter_label.includes(label)}
+                                            onClick={() => dispatch_note({ type: FILTER_LABEL, payload: { label: label } })}
+                                        />
                                         <label htmlFor="label">{label}</label>
                                     </div>
                                 )
