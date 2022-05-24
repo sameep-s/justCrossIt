@@ -3,11 +3,14 @@ import "./navbar.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faHome } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context';
+import { useAuth, useNotes } from '../../context';
+import { FILTER_SEARCH } from '../../constants/notesReducer-constant';
 
 const Navbar = ({ noSearch }) => {
-    const navigate = useNavigate();
+
+    const { state_note, dispatch_note } = useNotes();
     const { user, setUser } = useAuth();
+    const navigate = useNavigate();
 
     function logoutHandler() {
         localStorage.removeItem('tokenNotes');
@@ -37,6 +40,8 @@ const Navbar = ({ noSearch }) => {
                                 type="text"
                                 name=""
                                 id=""
+                                value={state_note.filter_search || ""}
+                                onChange={(e) => dispatch_note({ type: FILTER_SEARCH, payload: { search: e.target.value } })}
                                 placeholder="search"
                             />
                         </div>

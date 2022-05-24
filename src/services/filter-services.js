@@ -26,3 +26,9 @@ export function filterLabel(noteList, label) {
 
     return noteList;
 }
+
+export function filterSearch(noteList, searchVal) {
+    if (searchVal == "") return noteList;
+
+    return noteList.filter((item) => item.title.toLowerCase().includes(searchVal));
+}

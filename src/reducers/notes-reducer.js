@@ -5,7 +5,8 @@ import {
     FILTER_PRIORITY,
     NOTES_INIT,
     TRASH_INIT,
-    RESET_FILTERS
+    RESET_FILTERS,
+    FILTER_SEARCH
 } from "../constants/notesReducer-constant";
 
 const defaultFilterState = {
@@ -53,9 +54,12 @@ export const reducerNotes = (state_note, action) => {
 
                 return { ...state_note, filter_label: [...state_note.filter_label, action.payload.label] }
             }
+
+        case FILTER_SEARCH: {
+            return { ...state_note, filter_search: action.payload.search };
+        }
+
         case RESET_FILTERS: {
-            console.log(`reset`);
-            console.log(`sn`, defaultFilterState);
             return { ...state_note, ...defaultFilterState };
         }
 
